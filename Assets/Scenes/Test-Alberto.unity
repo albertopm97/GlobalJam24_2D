@@ -352,6 +352,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ed1a8b059dea0e4f8fba8cadf2c9f8e, type: 3}
+--- !u!1001 &1787964624
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 82925329419444814, guid: 44645577c73ee8648b8dd95e36680400, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.380746
+      objectReference: {fileID: 0}
+    - target: {fileID: 82925329419444814, guid: 44645577c73ee8648b8dd95e36680400, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.21134758
+      objectReference: {fileID: 0}
+    - target: {fileID: 82925329419444814, guid: 44645577c73ee8648b8dd95e36680400, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82925329419444814, guid: 44645577c73ee8648b8dd95e36680400, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 82925329419444814, guid: 44645577c73ee8648b8dd95e36680400, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82925329419444814, guid: 44645577c73ee8648b8dd95e36680400, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82925329419444814, guid: 44645577c73ee8648b8dd95e36680400, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82925329419444814, guid: 44645577c73ee8648b8dd95e36680400, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82925329419444814, guid: 44645577c73ee8648b8dd95e36680400, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82925329419444814, guid: 44645577c73ee8648b8dd95e36680400, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6877468817348751931, guid: 44645577c73ee8648b8dd95e36680400, type: 3}
+      propertyPath: m_Name
+      value: MinaMofeta
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 44645577c73ee8648b8dd95e36680400, type: 3}
 --- !u!1 &2059118658
 GameObject:
   m_ObjectHideFlags: 0
@@ -525,6 +582,7 @@ MonoBehaviour:
   minaPisada: 0
   tiempoVuelo: 3
   alturaInicial: 0
+  paralyzedTime: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -532,3 +590,4 @@ SceneRoots:
   - {fileID: 204455231}
   - {fileID: 2059118662}
   - {fileID: 1446996700}
+  - {fileID: 1787964624}

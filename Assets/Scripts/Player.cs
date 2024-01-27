@@ -33,6 +33,9 @@ public class Player : MonoBehaviour
 
     public float alturaInicial;
 
+    bool canMove = true;
+    [SerializeField] float paralyzedTime = 1f;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -52,6 +55,9 @@ public class Player : MonoBehaviour
     void Update()
     {
         moveDir = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+
+        if (!canMove)
+            return;
 
         rb.velocity = moveDir * moveSpeed * Time.deltaTime;
 
@@ -163,6 +169,18 @@ public class Player : MonoBehaviour
             alturaInicial = transform.position.y;
             cc.enabled = false;
         }
-        
+        else if (collision.gameObject.tag == "Paralyzer")
+        {
+            canMove = false;
+            rb.velocity = Vector2.zero;
+            //Handheld.Vibrate();
+            Invoke("ResetMovement", paralyzedTime);
+        }
+
+    }
+
+    void ResetMovement()
+    {
+        canMove = true;
     }
 }
