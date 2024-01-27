@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f90ccd04636efb1418404fffa2640056
+guid: a8184d1260a458942ab15a015980206e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -108,7 +108,91 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Lobostandingmoveset_0
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 56
+        width: 178
+        height: 253
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77c3b23634c123043ba5beb13f47dd7a
+      internalID: -1410293588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lobostandingmoveset_1
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 57
+        width: 176
+        height: 254
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2cb5b664dbaaee24682f5aa2c345ce7f
+      internalID: -596864859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lobostandingmoveset_2
+      rect:
+        serializedVersion: 2
+        x: 603
+        y: 57
+        width: 185
+        height: 256
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ef106e1d8834f74f880759732c2608c
+      internalID: 1110055680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lobostandingmoveset_3
+      rect:
+        serializedVersion: 2
+        x: 878
+        y: 57
+        width: 185
+        height: 255
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11bc94b07f20e6d41b9dcf431e368231
+      internalID: 2138432406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +203,11 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Lobostandingmoveset_0: -1410293588
+      Lobostandingmoveset_1: -596864859
+      Lobostandingmoveset_2: 1110055680
+      Lobostandingmoveset_3: 2138432406
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

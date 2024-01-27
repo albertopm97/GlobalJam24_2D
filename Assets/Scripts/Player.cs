@@ -36,6 +36,9 @@ public class Player : MonoBehaviour
     bool canMove = true;
     [SerializeField] float paralyzedTime = 1f;
 
+    [Header("Animacion")]
+    private Animator animator;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -47,6 +50,8 @@ public class Player : MonoBehaviour
         minaPisada = false;
 
         cc = GetComponent<CapsuleCollider2D>();
+
+        animator = GetComponent<Animator>();
     }
     // Start is called before the first frame update
 
@@ -55,6 +60,19 @@ public class Player : MonoBehaviour
     void Update()
     {
         moveDir = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+
+        //Activamos la animacion de correr si se mueve el personaje
+        //animator.SetFloat("Horizontal", Mathf.Abs(rb.velocity.x));
+        //animator.SetFloat("Vertical", Mathf.Abs(rb.velocity.y));
+
+        if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
+        {
+            animator.SetBool("Andar", true);
+        }
+        else
+        {
+            animator.SetBool("Andar", false);
+        }
 
         if (!canMove)
             return;
@@ -169,7 +187,7 @@ public class Player : MonoBehaviour
             alturaInicial = transform.position.y;
             cc.enabled = false;
         }
-        else if (collision.gameObject.tag == "Paralyzer")
+        else if (collision.gameObject.tag == "MinaMofeta")
         {
             canMove = false;
             rb.velocity = Vector2.zero;
