@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class Player : MonoBehaviour
+public class Player1 : MonoBehaviour
 {
     public enum  TipoArma {Pepitas, Bazooka};
 

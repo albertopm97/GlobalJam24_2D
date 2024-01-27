@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7243404242295997055}
   - component: {fileID: 6463192716961295578}
-  - component: {fileID: 7194524698931583566}
   - component: {fileID: 5461424116809743957}
+  - component: {fileID: -5624168423447480444}
   m_Layer: 0
-  m_Name: BalaPepita
+  m_Name: BalaBazooka
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -86,22 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7194524698931583566
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6732824440659517283}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dae28848b3e65fb48843783b0bbcc1a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletSpeed: 40
-  bulletSpread: 0.01
-  trajectory: {x: 0, y: 1}
-  maxDist: 100
 --- !u!50 &5461424116809743957
 Rigidbody2D:
   serializedVersion: 4
@@ -129,3 +113,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-5624168423447480444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6732824440659517283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e6e8a6769c90d94db82392810ee1f55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  maxLifeTime: 5
