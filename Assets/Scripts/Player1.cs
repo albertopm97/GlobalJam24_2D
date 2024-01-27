@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
 public class Player1 : MonoBehaviour
 {
     public enum  TipoArma {Pepitas, Bazooka};
@@ -33,6 +32,9 @@ public class Player1 : MonoBehaviour
     private float tiempoVueloActual;
 
     public float caidaPuercoespin;
+
+    bool canMove = true;
+    [SerializeField] float paralyzedTime = 1f;
 
     private void Awake()
     {
@@ -96,6 +98,9 @@ public class Player1 : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!canMove)
+            return;
+
         rb.velocity = moveDir * moveSpeed * Time.deltaTime;
         //rb.velocity += moveDir * moveAcceleration * Time.deltaTime;
         //rb.velocity.magnitude
@@ -192,5 +197,17 @@ public class Player1 : MonoBehaviour
 
             coliderBajadaInstanciado = false;
         }
+        else if (collision.gameObject.tag == "Paralyzer")
+        {
+            canMove = false;
+            rb.velocity = Vector2.zero;
+            //Handheld.Vibrate();
+            Invoke("ResetMovement", paralyzedTime);
+        }
+    }
+
+    void ResetMovement()
+    {
+        canMove = true;
     }
 }
