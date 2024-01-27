@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-    public enum  TipoArma {Pepitas, Bazooka};
+    public enum  TipoArma {Pepitas, Bazooka, sinArma};
 
     public GameObject bulletMachineGun;
     public GameObject bulletBazooka;
@@ -90,6 +90,9 @@ public class Player : MonoBehaviour
 
                 case TipoArma.Pepitas:
                     fireMachinegun();
+                    break;
+
+                case TipoArma.sinArma:
                     break;
             }
         }
