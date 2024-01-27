@@ -6,7 +6,7 @@ public class Projectile : MonoBehaviour
 {
     public GameObject proyectile;
     public GameObject target;
-    public float speed - 10f;
+    public float speed = 10f;
     private float towerX; 
     private float targetX;
     private float dist;
@@ -21,6 +21,7 @@ public class Projectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
         proyectileX = tower.transform.position.x;
         dist = Mathf.Abs(10);
         nextX = Mathf.MoveTowards(transform.position.x, , speed * Time.deltaTime);
@@ -37,6 +38,6 @@ public class Projectile : MonoBehaviour
         movePosition = new Vector3(nextX, baseY + height, transform.position.z);
 
         transform.rotation = LookAtTarget(movePosition - transform.position);
-        transform.position = movePosition;
+        transform.position = movePosition;*/
     }
 }
