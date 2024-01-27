@@ -1,5 +1,261 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8579562516343487599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/fx/conejos/hahahaha
+  m_EditorClassIdentifier: 
+  Path: event:/fx/conejos/hahahaha
+  Guid:
+    Data1: -1319909133
+    Data2: 1336056599
+    Data3: 1544253323
+    Data4: -1916247219
+  Banks:
+  - {fileID: -5651907785788572546}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2000
+--- !u!114 &-8369778000625469695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/FMOD/Desktop/Master.strings.bank
+  Name: Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 638419886041041869
+  FileSizes:
+  - Name: Desktop
+    Value: 1426
+  Exists: 1
+--- !u!114 &-7774627042826322332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/fx/armas/sandilleta impacto
+  m_EditorClassIdentifier: 
+  Path: event:/fx/armas/sandilleta impacto
+  Guid:
+    Data1: 1177720804
+    Data2: 1328790326
+    Data3: -1725263181
+    Data4: 1865528733
+  Banks:
+  - {fileID: -5651907785788572546}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 14000
+--- !u!114 &-5651907785788572546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/FMOD/Desktop/Master.bank
+  Name: Master
+  StudioPath: bank:/Master
+  lastModified: 638419886040981892
+  FileSizes:
+  - Name: Desktop
+    Value: 577504
+  Exists: 1
+--- !u!114 &-4321443204947673881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/musica/conejos fanfarria
+  m_EditorClassIdentifier: 
+  Path: event:/musica/conejos fanfarria
+  Guid:
+    Data1: -1258097206
+    Data2: 1104025388
+    Data3: -841084004
+    Data4: 734977732
+  Banks:
+  - {fileID: -5651907785788572546}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 11500
+--- !u!114 &-4004886011302454607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/fx/armas/mofetida ataque
+  m_EditorClassIdentifier: 
+  Path: event:/fx/armas/mofetida ataque
+  Guid:
+    Data1: 1298557173
+    Data2: 1286730390
+    Data3: 1603226280
+    Data4: 1396749719
+  Banks:
+  - {fileID: -5651907785788572546}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2000
+--- !u!114 &-3714362505420857040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/fx/armas/mofetida impacto pestoso
+  m_EditorClassIdentifier: 
+  Path: event:/fx/armas/mofetida impacto pestoso
+  Guid:
+    Data1: 1280645440
+    Data2: 1201523624
+    Data3: 1893487753
+    Data4: 1376180615
+  Banks:
+  - {fileID: -5651907785788572546}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 4500
+--- !u!114 &-2991929429748505092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/fx/conejos/puagh
+  m_EditorClassIdentifier: 
+  Path: event:/fx/conejos/puagh
+  Guid:
+    Data1: 354746087
+    Data2: 1190637011
+    Data3: 2119865751
+    Data4: 1493196994
+  Banks:
+  - {fileID: -5651907785788572546}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-2556364170630958862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/fx/conejos/booooh
+  m_EditorClassIdentifier: 
+  Path: event:/fx/conejos/booooh
+  Guid:
+    Data1: -737338749
+    Data2: 1326696374
+    Data3: -296796794
+    Data4: 1357011006
+  Banks:
+  - {fileID: -5651907785788572546}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 4000
+--- !u!114 &-669496913711203706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/fx/conejos/uka
+  m_EditorClassIdentifier: 
+  Path: event:/fx/conejos/uka
+  Guid:
+    Data1: -1656512283
+    Data2: 1100344572
+    Data3: 9738158
+    Data4: -821761231
+  Banks:
+  - {fileID: -5651907785788572546}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1000
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12,10 +268,190 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d32cf7c32a3ed8347bac48ef5ed56d82, type: 3}
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
-  EditorBanks: []
-  EditorEvents: []
+  EditorBanks:
+  - {fileID: -8369778000625469695}
+  - {fileID: -5651907785788572546}
+  EditorEvents:
+  - {fileID: -3714362505420857040}
+  - {fileID: 1834896906829624822}
+  - {fileID: -2556364170630958862}
+  - {fileID: 602112145074830162}
+  - {fileID: -4321443204947673881}
+  - {fileID: 5839078283728682375}
+  - {fileID: 7024433744926570225}
+  - {fileID: -7774627042826322332}
+  - {fileID: -669496913711203706}
+  - {fileID: -2991929429748505092}
+  - {fileID: 2453089114421923670}
+  - {fileID: -8579562516343487599}
+  - {fileID: 523944361550050595}
+  - {fileID: -4004886011302454607}
   EditorParameters: []
-  MasterBanks: []
-  StringsBanks: []
-  cacheTime: 0
+  MasterBanks:
+  - {fileID: -5651907785788572546}
+  StringsBanks:
+  - {fileID: -8369778000625469695}
+  cacheTime: 638419886041041869
   cacheVersion: 131605
+--- !u!114 &523944361550050595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/fx/conejos/pachuki
+  m_EditorClassIdentifier: 
+  Path: event:/fx/conejos/pachuki
+  Guid:
+    Data1: -418393100
+    Data2: 1212583575
+    Data3: 1633601982
+    Data4: -1049535503
+  Banks:
+  - {fileID: -5651907785788572546}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2000
+--- !u!114 &602112145074830162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: "event:/fx/armas/pi\xF1azooka impacto"
+  m_EditorClassIdentifier: 
+  Path: "event:/fx/armas/pi\xF1azooka impacto"
+  Guid:
+    Data1: -628766266
+    Data2: 1328724687
+    Data3: 1927536788
+    Data4: -114871402
+  Banks:
+  - {fileID: -5651907785788572546}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 4250
+--- !u!114 &1834896906829624822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/fx/conejos/toooooo!
+  m_EditorClassIdentifier: 
+  Path: event:/fx/conejos/toooooo!
+  Guid:
+    Data1: -1769498805
+    Data2: 1276101139
+    Data3: -206584179
+    Data4: -1964696719
+  Banks:
+  - {fileID: -5651907785788572546}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 4000
+--- !u!114 &2453089114421923670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/fx/conejos/tiku
+  m_EditorClassIdentifier: 
+  Path: event:/fx/conejos/tiku
+  Guid:
+    Data1: 1270326509
+    Data2: 1236354554
+    Data3: 1309999264
+    Data4: -520315798
+  Banks:
+  - {fileID: -5651907785788572546}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2000
+--- !u!114 &5839078283728682375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: "event:/fx/armas/pi\xF1azooka ataque"
+  m_EditorClassIdentifier: 
+  Path: "event:/fx/armas/pi\xF1azooka ataque"
+  Guid:
+    Data1: -1709167910
+    Data2: 1194516220
+    Data3: 177856656
+    Data4: -2020323474
+  Banks:
+  - {fileID: -5651907785788572546}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1000
+--- !u!114 &7024433744926570225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/fx/armas/pinchosa impacto
+  m_EditorClassIdentifier: 
+  Path: event:/fx/armas/pinchosa impacto
+  Guid:
+    Data1: 1185500383
+    Data2: 1101228771
+    Data3: 1552998799
+    Data4: 27118501
+  Banks:
+  - {fileID: -5651907785788572546}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 4234
