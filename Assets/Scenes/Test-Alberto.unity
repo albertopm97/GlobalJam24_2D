@@ -514,17 +514,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee1b147348d996649a6731cd5da23416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletMAchineGun: {fileID: 6732824440659517283, guid: 0fae926993cf6b343ba0db9897ab3af8, type: 3}
+  bulletMachineGun: {fileID: 6732824440659517283, guid: 0fae926993cf6b343ba0db9897ab3af8, type: 3}
   bulletBazooka: {fileID: 6732824440659517283, guid: 51d9a6fa6521d384da8ae960dcd54534, type: 3}
-  colisionCaidaMina: {fileID: 6877468817348751931, guid: b7e2115434d31e848b1f91f0221e159b, type: 3}
   bulletSpawnPoint: {fileID: 1012290601}
-  recoilStrength: 0
+  recoilStrength: 5
   armaActual: 1
-  jumpForce: 10
-  moveSpeed: 200
+  jumpForce: 200
+  moveSpeed: 300
   moveAcceleration: 0
+  minaPisada: 0
   tiempoVuelo: 3
-  caidaPuercoespin: 30
+  alturaInicial: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 
@@ -8,9 +9,8 @@ public class Player : MonoBehaviour
 {
     public enum  TipoArma {Pepitas, Bazooka};
 
-    public GameObject bulletMAchineGun;
+    public GameObject bulletMachineGun;
     public GameObject bulletBazooka;
-    public GameObject colisionCaidaMina;
 
     [SerializeField] Transform bulletSpawnPoint;
     [SerializeField] float recoilStrength;
@@ -18,21 +18,20 @@ public class Player : MonoBehaviour
     public TipoArma armaActual;
 
     Rigidbody2D rb;
+    CapsuleCollider2D cc;
+
     public float jumpForce;
     Vector2 moveDir;
     public float moveSpeed;
     public float moveAcceleration;
 
-    private bool minaPisada;
-    private bool vueltaOrigen;
-    bool coliderBajadaInstanciado;
+    public bool minaPisada;
 
-    Vector3 posPrevia;
     public float tiempoVuelo;
 
     private float tiempoVueloActual;
 
-    public float caidaPuercoespin;
+    public float alturaInicial;
 
     private void Awake()
     {
@@ -40,20 +39,13 @@ public class Player : MonoBehaviour
 
         moveDir = Vector2.zero;
 
-        minaPisada = false;
-
-        vueltaOrigen = false;
-
-        coliderBajadaInstanciado = false;
-
         tiempoVuelo = 3f;
 
+        minaPisada = false;
+
+        cc = GetComponent<CapsuleCollider2D>();
     }
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
 
     // Update is called once per frame
@@ -61,6 +53,9 @@ public class Player : MonoBehaviour
     {
         moveDir = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
 
+        rb.velocity = moveDir * moveSpeed * Time.deltaTime;
+
+        //Accion de las armas
         if (Input.GetButton("Jump"))
         {
             switch (armaActual)
@@ -75,35 +70,36 @@ public class Player : MonoBehaviour
             }
         }
 
-        /*if (minaPisada)  
+        if (minaPisada)  
         {
             if (tiempoVueloActual > 0)
             {
-                rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+                //rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+                rb.AddForce(Vector2.up * jumpForce);
                 tiempoVueloActual -= Time.deltaTime;
             }
-            else
+            else if(tiempoVueloActual <= 0)
             {
-                transform.position = Vector2.MoveTowards(transform.position, posPrevia, caidaPuercoespin);
-
-                if (vueltaOrigen)
-                {
-                    minaPisada = false;
-                }
+                rb.gravityScale = 150;
             }
-        }*/
+        }
+
+        if (transform.position.y < alturaInicial && minaPisada)
+        {
+            rb.gravityScale = 0;
+            cc.enabled = true;
+
+            minaPisada = false;
+        }
+
+        Debug.Log(tiempoVueloActual);
     }
 
-    private void FixedUpdate()
-    {
-        rb.velocity = moveDir * moveSpeed * Time.deltaTime;
-        //rb.velocity += moveDir * moveAcceleration * Time.deltaTime;
-        //rb.velocity.magnitude
-    }
+   
 
     private void fireMachinegun()
     {
-        GameObject bullet = Instantiate(bulletMAchineGun);
+        GameObject bullet = Instantiate(bulletMachineGun);
 
         bullet.transform.position = bulletSpawnPoint.position;
 
@@ -161,36 +157,12 @@ public class Player : MonoBehaviour
         if (collision.gameObject.tag == "minaPuercoespin")
         {
             Debug.Log("Mina pisada");
-            minaPisada = true;
 
             tiempoVueloActual = tiempoVuelo;
-
-            posPrevia = collision.transform.position;
-
-
-            //Antes de destruir activar animacion puerco espin
-
-            //Destroy(collision.gameObject);
-
-            //Activo el objeto para colisionar en la caida
-
-            if(!coliderBajadaInstanciado)
-            {
-                GameObject colisionCaida = Instantiate(colisionCaidaMina);
-
-                colisionCaida.transform.position = this.transform.position;
-
-                coliderBajadaInstanciado = true;
-            }
-            
+            minaPisada = true;
+            alturaInicial = transform.position.y;
+            cc.enabled = false;
         }
-        else if(collision.gameObject.tag == "BajadaMina")
-        {
-            vueltaOrigen = true;
-
-            //Destroy(collision.gameObject);
-
-            coliderBajadaInstanciado = false;
-        }
+        
     }
 }
