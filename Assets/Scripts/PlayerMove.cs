@@ -2,27 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class PlayerMove : MonoBehaviour
 {
 
     Rigidbody2D rb;
+    Vector2 moveDir;
     public float moveSpeed;
-    public float jumpForce;
-    public int maxJumps;
-    int numJumps;
-    bool canJump;
-    Vector2 direction;
-    SpriteRenderer spriteRenderer;
-    public int score;
 
     private void Awake()
     {
-        numJumps = maxJumps;
-        moveSpeed = 5f;
-        jumpForce = 7f;
-        canJump = true;
         rb = GetComponent<Rigidbody2D>();
-        score = 0;
+
+        moveDir = Vector2.zero;
     }
     // Start is called before the first frame update
     void Start()
@@ -30,11 +22,17 @@ public class PlayerMove : MonoBehaviour
         
     }
 
+
     // Update is called once per frame
     void Update()
     {
-        rb.velocity = new Vector2(Input.GetAxis("Horizontal") * moveSpeed, Input.GetAxis("Vertical") * moveSpeed);
-
-        //rb.velocity = new Vector2(Input.GetAxis("Horizontal") * moveSpeed, rb.velocity.y);
+        moveDir = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
     }
+
+    private void FixedUpdate()
+    {
+        rb.velocity = moveDir * moveSpeed * Time.deltaTime;
+    }
+
+
 }
