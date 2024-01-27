@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class PlayerMove : MonoBehaviour
+public class Player : MonoBehaviour
 {
+    public GameObject bulletMAchineGun;
 
     Rigidbody2D rb;
     Vector2 moveDir;
@@ -27,6 +28,11 @@ public class PlayerMove : MonoBehaviour
     void Update()
     {
         moveDir = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+
+        if (Input.GetButton("Jump"))
+        {
+            fireMachinegun();
+        }
     }
 
     private void FixedUpdate()
@@ -34,5 +40,14 @@ public class PlayerMove : MonoBehaviour
         rb.velocity = moveDir * moveSpeed * Time.deltaTime;
     }
 
+    private void fireMachinegun()
+    {
+        GameObject bullet = Instantiate(bulletMAchineGun);
 
+        bullet.transform.position = this.transform.position;
+
+        Vector2 trajectory = moveDir;
+
+        bullet.GetComponent<BalaPepitas>().setTrajectory(trajectory);
+    }
 }
