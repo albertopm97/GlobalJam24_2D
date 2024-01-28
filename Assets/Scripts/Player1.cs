@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class Player1 : MonoBehaviour
 {
@@ -35,6 +37,9 @@ public class Player1 : MonoBehaviour
 
     bool canMove = true;
     [SerializeField] float paralyzedTime = 1f;
+    [SerializeField] float chest_coldown;
+    private float chest_coldown_atual;
+
 
     private void Awake()
     {
@@ -54,7 +59,7 @@ public class Player1 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        chest_coldown_atual = chest_coldown;
     }
 
 
@@ -76,6 +81,7 @@ public class Player1 : MonoBehaviour
                     break;
             }
         }
+        chest_coldown_atual -= Time.deltaTime;
 
         /*if (minaPisada)  
         {
@@ -154,7 +160,7 @@ public class Player1 : MonoBehaviour
     {
         float minRotation = 0;
         float maxRotation = 50;
-
+        
         float verticalMovement = moveDir.normalized.y;
         float normalizedVerticalMovement = 1f - (verticalMovement + 1) / 2;
 
@@ -163,6 +169,9 @@ public class Player1 : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("Chocando con: " + collision.gameObject.name);
+        Debug.Log("Chocando con: " + collision.gameObject.tag);
+
         if (collision.gameObject.tag == "minaPuercoespin")
         {
             Debug.Log("Mina pisada");
@@ -179,7 +188,7 @@ public class Player1 : MonoBehaviour
 
             //Activo el objeto para colisionar en la caida
 
-            if(!coliderBajadaInstanciado)
+            if (!coliderBajadaInstanciado)
             {
                 GameObject colisionCaida = Instantiate(colisionCaidaMina);
 
@@ -187,9 +196,9 @@ public class Player1 : MonoBehaviour
 
                 coliderBajadaInstanciado = true;
             }
-            
+
         }
-        else if(collision.gameObject.tag == "BajadaMina")
+        else if (collision.gameObject.tag == "BajadaMina")
         {
             vueltaOrigen = true;
 
@@ -203,6 +212,22 @@ public class Player1 : MonoBehaviour
             rb.velocity = Vector2.zero;
             //Handheld.Vibrate();
             Invoke("ResetMovement", paralyzedTime);
+        }
+
+        else if (collision.gameObject.tag == "Chest")
+        {
+            if (chest_coldown_atual < 0) 
+            {
+                TipoArma[] allWeapons = (TipoArma[])Enum.GetValues(typeof(TipoArma));
+                TipoArma randomWeapon = allWeapons[Random.Range(0, allWeapons.Length)];
+
+                armaActual = randomWeapon;
+
+                Debug.Log("Nueva arma:" + armaActual);
+                chest_coldown_atual = chest_coldown;
+
+            }
+
         }
     }
 
