@@ -4,12 +4,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
+using static Player;
 using Random = UnityEngine.Random;
 
 
 public class Player1 : MonoBehaviour
 {
-    public enum  TipoTrampa {Mofetida, Pinchoso, SinArma};
+    public int salud;
+
+    public int municion;
+
+    public enum TipoTrampa { Mofetida, Pinchoso, SinArma };
 
     public GameObject pinchoso;
     public GameObject mofetida;
@@ -38,17 +43,21 @@ public class Player1 : MonoBehaviour
 
     public float alturaInicial;
 
-    bool canMove = true;
-    [SerializeField] float paralyzedTime = 1f;
     [SerializeField] float chest_coldown;
     private float chest_coldown_atual;
 
+    bool canMove = true;
+    [SerializeField] float paralyzedTime = 1f;
 
     [Header("Animacion")]
     private Animator animator;
 
     private void Awake()
     {
+        salud = 100;
+
+        municion = 0;
+
         rb = GetComponent<Rigidbody2D>();
 
         moveDir = Vector2.zero;
@@ -60,26 +69,22 @@ public class Player1 : MonoBehaviour
         cc = GetComponent<CapsuleCollider2D>();
 
         animator = GetComponent<Animator>();
-    }
-    // Start is called before the first frame update
-<<<<<<< HEAD
-=======
-    void Start()
-    {
+
         chest_coldown_atual = chest_coldown;
     }
->>>>>>> 77301c10d355ac7dae86fbdf5404c22368d3477b
+    // Start is called before the first frame update
 
 
     // Update is called once per frame
     void Update()
     {
+        chest_coldown_atual -= Time.deltaTime;
+
         //moveDir = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-        if(Input.GetKeyDown(KeyCode.DownArrow)) 
+        if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             moveDir.y = -1;
         }
-        chest_coldown_atual -= Time.deltaTime;
 
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
@@ -124,7 +129,7 @@ public class Player1 : MonoBehaviour
         rb.velocity = moveDir * moveSpeed * Time.deltaTime;
 
         //Accion de las armas
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && municion >= 0)
         {
             switch (trampaActual)
             {
@@ -141,7 +146,7 @@ public class Player1 : MonoBehaviour
             }
         }
 
-        if (minaPisada)  
+        if (minaPisada)
         {
             if (tiempoVueloActual > 0)
             {
@@ -149,7 +154,7 @@ public class Player1 : MonoBehaviour
                 rb.AddForce(Vector2.up * jumpForce);
                 tiempoVueloActual -= Time.deltaTime;
             }
-            else if(tiempoVueloActual <= 0)
+            else if (tiempoVueloActual <= 0)
             {
                 rb.gravityScale = 150;
             }
@@ -163,10 +168,17 @@ public class Player1 : MonoBehaviour
             minaPisada = false;
         }
 
-        Debug.Log(tiempoVueloActual);
+        if (salud <= 0)
+        {
+            GameManager.instancia.cambiarEstadoActual(GameManager.estadoDelJuego.Fin);
+        }
+
+        //Flip animation 
+        bool flipped = moveDir.x > 0;
+        this.transform.rotation = Quaternion.Euler(new Vector3(0f, flipped ? 180f : 0f, 0f));
     }
 
-   
+
 
     private void fireMachinegun()
     {
@@ -229,7 +241,7 @@ public class Player1 : MonoBehaviour
     {
         float minRotation = 0;
         float maxRotation = 50;
-        
+
         float verticalMovement = moveDir.normalized.y;
         float normalizedVerticalMovement = 1f - (verticalMovement + 1) / 2;
 
@@ -241,73 +253,33 @@ public class Player1 : MonoBehaviour
         Debug.Log("Chocando con: " + collision.gameObject.name);
         Debug.Log("Chocando con: " + collision.gameObject.tag);
 
-        if (collision.gameObject.tag == "minaPuercoespin")
+        if (collision.gameObject.tag == "balaBazooka")
         {
-            Debug.Log("Mina pisada");
-
-            tiempoVueloActual = tiempoVuelo;
-<<<<<<< HEAD
-            minaPisada = true;
-            alturaInicial = transform.position.y;
-            cc.enabled = false;
+            salud -= 20;
         }
-        else if (collision.gameObject.tag == "MinaMofeta")
-=======
-
-            posPrevia = collision.transform.position;
-
-
-            //Antes de destruir activar animacion puerco espin
-
-            //Destroy(collision.gameObject);
-
-            //Activo el objeto para colisionar en la caida
-
-            if (!coliderBajadaInstanciado)
-            {
-                GameObject colisionCaida = Instantiate(colisionCaidaMina);
-
-                colisionCaida.transform.position = this.transform.position;
-
-                coliderBajadaInstanciado = true;
-            }
-
-        }
-        else if (collision.gameObject.tag == "BajadaMina")
+        else if (collision.gameObject.tag == "balaSandia")
         {
-            vueltaOrigen = true;
-
-            //Destroy(collision.gameObject);
-
-            coliderBajadaInstanciado = false;
+            salud -= 1;
         }
-        else if (collision.gameObject.tag == "Paralyzer")
->>>>>>> 77301c10d355ac7dae86fbdf5404c22368d3477b
-        {
-            canMove = false;
-            rb.velocity = Vector2.zero;
-            //Handheld.Vibrate();
-            Invoke("ResetMovement", paralyzedTime);
-        }
-
-<<<<<<< HEAD
-=======
         else if (collision.gameObject.tag == "Chest")
         {
-            if (chest_coldown_atual < 0) 
+            if (chest_coldown_atual < 0)
             {
-                TipoArma[] allWeapons = (TipoArma[])Enum.GetValues(typeof(TipoArma));
-                TipoArma randomWeapon = allWeapons[Random.Range(0, allWeapons.Length)];
+                TipoTrampa[] allWeapons = (TipoTrampa[])Enum.GetValues(typeof(TipoTrampa));
+                TipoTrampa randomWeapon = allWeapons[Random.Range(0, allWeapons.Length)];
 
-                armaActual = randomWeapon;
+                trampaActual = randomWeapon;
 
-                Debug.Log("Nueva arma:" + armaActual);
+                Debug.Log("Nueva arma:" + trampaActual);
                 chest_coldown_atual = chest_coldown;
 
+                municion = 2;
+
+                Destroy(collision.gameObject);
             }
 
         }
->>>>>>> 77301c10d355ac7dae86fbdf5404c22368d3477b
+
     }
 
     void ResetMovement()

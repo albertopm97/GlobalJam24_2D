@@ -8,6 +8,9 @@ TagManager:
   - MinaMofeta
   - BajadaMina
   - Barrera
+  - balaBazooka
+  - balaSandia
+  - Chest
   layers:
   - Default
   - TransparentFX

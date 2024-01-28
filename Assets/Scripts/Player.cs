@@ -1,12 +1,19 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
+using static Player1;
+using Random = UnityEngine.Random;
+
 
 
 public class Player : MonoBehaviour
 {
+
+    public int salud;
+
     public enum  TipoArma {Pepitas, Bazooka, sinArma};
 
     public int municion;
@@ -41,8 +48,13 @@ public class Player : MonoBehaviour
     [Header("Animacion")]
     private Animator animator;
 
+    [SerializeField] float chest_coldown;
+    private float chest_coldown_atual;
+
     private void Awake()
     {
+        salud = 100;
+
         rb = GetComponent<Rigidbody2D>();
 
         moveDir = Vector2.zero;
@@ -54,6 +66,9 @@ public class Player : MonoBehaviour
         cc = GetComponent<CapsuleCollider2D>();
 
         animator = GetComponent<Animator>();
+
+        chest_coldown_atual = chest_coldown;
+
     }
     // Start is called before the first frame update
 
@@ -61,6 +76,8 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        chest_coldown_atual -= Time.deltaTime;
+
         //moveDir = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
 
         if (Input.GetKeyDown(KeyCode.S))
@@ -154,6 +171,15 @@ public class Player : MonoBehaviour
         }
 
         Debug.Log(tiempoVueloActual);
+
+        if(salud <= 0)
+        {
+            GameManager.instancia.cambiarEstadoActual(GameManager.estadoDelJuego.Fin);
+        }
+
+        //Flip animation 
+        bool flipped = moveDir.x > 0;
+        this.transform.rotation = Quaternion.Euler(new Vector3(0f, flipped ? 180f : 0f, 0f));
     }
 
    
@@ -215,6 +241,9 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("Chocando con: " + collision.gameObject.name);
+        Debug.Log("Chocando con: " + collision.gameObject.tag);
+
         if (collision.gameObject.tag == "minaPuercoespin")
         {
             Debug.Log("Mina pisada");
@@ -223,6 +252,7 @@ public class Player : MonoBehaviour
             minaPisada = true;
             alturaInicial = transform.position.y;
             cc.enabled = false;
+            salud -= 20;
         }
         else if (collision.gameObject.tag == "MinaMofeta")
         {
@@ -230,6 +260,46 @@ public class Player : MonoBehaviour
             rb.velocity = Vector2.zero;
             //Handheld.Vibrate();
             Invoke("ResetMovement", paralyzedTime);
+            salud -= 20;
+        }
+        
+        else if (collision.gameObject.tag == "Chest")
+        {
+            if (chest_coldown_atual < 0)
+            {
+                TipoArma[] allWeapons = (TipoArma[])Enum.GetValues(typeof(TipoArma));
+                TipoArma randomWeapon = allWeapons[Random.Range(0, allWeapons.Length)];
+
+                armaActual = randomWeapon;
+
+                if(armaActual == TipoArma.Bazooka)
+                {
+                    municion = 5;
+                }
+                else
+                {
+                    municion = 1000;
+                }
+
+
+                Debug.Log("Nueva arma:" + armaActual);
+                chest_coldown_atual = chest_coldown;
+
+                switch(armaActual)
+                {
+                    case TipoArma.Bazooka:
+                        animator.SetInteger("Arma", 1);
+                        break;
+
+                    case TipoArma.Pepitas:
+                        animator.SetInteger("Arma", 2);
+                        break;
+                }
+
+                Destroy(collision.gameObject);
+
+            }
+
         }
 
     }
