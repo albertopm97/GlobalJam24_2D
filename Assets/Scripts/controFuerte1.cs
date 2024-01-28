@@ -6,12 +6,12 @@ public class controFuerte1 : MonoBehaviour
 {
     public Transform player = null;
 
-    SpriteRenderer spriteRenderer;
+    SpriteRenderer sr;
 
     // Start is called before the first frame update
     void Start()
     {
-        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+        sr = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -19,7 +19,22 @@ public class controFuerte1 : MonoBehaviour
     {
         if (player.transform.position.x < transform.position.x)
         {
-            //spriteRendere  POR AQUI VOY
+            sr.sortingLayerName = "TrasJugador";
         }
+        else
+        {
+            sr.sortingLayerName = "Frontal";
+        }
+
+        if (player.transform.position.y < transform.position.y)
+        {
+            sr.sortingLayerName = "Frontal";
+        }
+        else
+        {
+            sr.sortingLayerName = "TrasJugador";
+        }
+
+
     }
 }

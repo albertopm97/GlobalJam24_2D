@@ -50,4 +50,12 @@ public class BalaPepitas : MonoBehaviour
         float angle = Mathf.Atan2(trajectory.y, trajectory.x) * 360f/(2f * Mathf.PI) - 90f;
         this.transform.rotation = Quaternion.Euler(0f, 0f, angle);
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Barrera")
+        {
+            Destroy(this.gameObject);
+        }
+    }
 }

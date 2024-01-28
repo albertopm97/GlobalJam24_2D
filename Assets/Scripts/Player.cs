@@ -9,6 +9,8 @@ public class Player : MonoBehaviour
 {
     public enum  TipoArma {Pepitas, Bazooka, sinArma};
 
+    public int municion;
+
     public GameObject bulletMachineGun;
     public GameObject bulletBazooka;
 
@@ -59,13 +61,43 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        moveDir = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        //moveDir = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            moveDir.y = -1;
+        }
+
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            moveDir.y = 1;
+        }
+
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            moveDir.x = 1;
+        }
+
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            moveDir.x = -1;
+        }
+
+        if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.S))
+        {
+            moveDir.y = 0;
+        }
+
+        if (Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.A))
+        {
+            moveDir.x = 0;
+        }
 
         //Activamos la animacion de correr si se mueve el personaje
         //animator.SetFloat("Horizontal", Mathf.Abs(rb.velocity.x));
         //animator.SetFloat("Vertical", Mathf.Abs(rb.velocity.y));
 
-        if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
+        if (moveDir.x != 0 || moveDir.y != 0)
         {
             animator.SetBool("Andar", true);
         }
@@ -80,16 +112,18 @@ public class Player : MonoBehaviour
         rb.velocity = moveDir * moveSpeed * Time.deltaTime;
 
         //Accion de las armas
-        if (Input.GetButton("Jump"))
+        if (Input.GetKey(KeyCode.V) && municion > 0)
         {
             switch (armaActual)
             {
                 case TipoArma.Bazooka:
                     firePinhazooka();
+                    municion--;
                     break;
 
                 case TipoArma.Pepitas:
                     fireMachinegun();
+                    municion--;
                     break;
 
                 case TipoArma.sinArma:

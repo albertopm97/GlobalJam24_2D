@@ -6,6 +6,8 @@ TagManager:
   tags:
   - minaPuercoespin
   - MinaMofeta
+  - BajadaMina
+  - Barrera
   layers:
   - Default
   - TransparentFX
@@ -42,4 +44,13 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 1389132087
+    locked: 0
+  - name: Foreground
+    uniqueID: 3980505355
+    locked: 0
+  - name: UI
+    uniqueID: 4187041481
     locked: 0
