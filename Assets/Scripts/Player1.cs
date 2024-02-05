@@ -263,7 +263,7 @@ public class Player1 : MonoBehaviour
         }
         else if (collision.gameObject.tag == "Chest")
         {
-            if (chest_coldown_atual < 0)
+            if (chest_coldown_atual <= 0)
             {
                 TipoTrampa[] allWeapons = (TipoTrampa[])Enum.GetValues(typeof(TipoTrampa));
                 TipoTrampa randomWeapon = allWeapons[Random.Range(0, allWeapons.Length)];

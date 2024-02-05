@@ -33,12 +33,4 @@ public class Bullet : MonoBehaviour
     {
         GameObject.Destroy(gameObject);
     }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if(collision.gameObject.tag == "Barrera")
-        {
-            DestroyBullet();
-        }
-    }
 }
