@@ -49,7 +49,7 @@ public class Player : MonoBehaviour
     private Animator animator;
 
     [SerializeField] float chest_coldown;
-    private float chest_coldown_atual;
+    public float chest_coldown_atual;
 
     private void Awake()
     {
@@ -265,7 +265,7 @@ public class Player : MonoBehaviour
         
         else if (collision.gameObject.tag == "Chest")
         {
-            if (chest_coldown_atual < 0)
+            if (chest_coldown_atual <= 0)
             {
                 TipoArma[] allWeapons = (TipoArma[])Enum.GetValues(typeof(TipoArma));
                 TipoArma randomWeapon = allWeapons[Random.Range(0, allWeapons.Length)];
