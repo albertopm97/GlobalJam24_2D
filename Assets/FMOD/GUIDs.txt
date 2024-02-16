@@ -1,0 +1,20 @@
+{516e38dd-d188-46f5-9660-7f316859879d} bank:/Master
+{c9731809-a0f3-0ab7-1029-f5cf99aa8105} bank:/Master.strings
+{96cf23d5-7606-40ea-9bdb-9232d0777226} bus:/
+{d4e551f0-cd45-47eb-a74c-b955c0895414} bus:/FX
+{23f148e6-84b4-4e44-a2f4-a72cf943ef44} bus:/Música
+{08b3518a-c273-4be8-8aff-056bd54dc5fb} bus:/Reverb
+{4d6668f5-f296-4cb1-a84a-8f5f97b54053} event:/fx/armas/mofetida ataque
+{4c551940-cba8-479d-8954-dc7087d90652} event:/fx/armas/mofetida impacto pestoso
+{46a94cdf-6ae3-41a3-8fe1-905ca5cb9d01} event:/fx/armas/pinchosa impacto
+{9a202ada-defc-4732-90e0-990a6e4f9487} event:/fx/armas/piñazooka ataque
+{da85c9c6-bacf-4f32-94e0-e372963327f9} event:/fx/armas/piñazooka impacto
+{463297e4-bb36-4f33-b392-2a999db5316f} event:/fx/armas/sandilleta impacto
+{d40d1a83-c7b6-4f13-863d-4fee3e58e250} event:/fx/conejos/booooh
+{b153c8f3-9b17-4fa2-8b6f-0b5c4d63c88d} event:/fx/conejos/hahahaha
+{e70fd3f4-8e97-4846-bec9-5e61f15b71c1} event:/fx/conejos/pachuki
+{1524fee7-add3-46f7-9795-5a7ec2600059} event:/fx/conejos/puagh
+{4bb7a4ed-45fa-49b1-a000-154e6a9cfce0} event:/fx/conejos/tiku
+{9687974b-c213-4c0f-8dc6-aff3711be58a} event:/fx/conejos/toooooo!
+{9d43a0e5-ecfc-4195-ae97-940031eb04cf} event:/fx/conejos/uka
+{b502f5ca-172c-41ce-9c13-decdc4dece2b} event:/musica/conejos fanfarria
