@@ -610,7 +610,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &531107436
+--- !u!1 &632768371
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -618,44 +618,28 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 531107438}
-  - component: {fileID: 531107437}
+  - component: {fileID: 632768372}
   m_Layer: 0
-  m_Name: ChessSpawnPoint2
+  m_Name: p2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &531107437
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 531107436}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b10b8e88f5e64c4c85bc6f13c38d27d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chess: {fileID: 7222107004992582000, guid: 80539cdde14fe63499ae5ba6ca7f24ec, type: 3}
-  chessSpawnTime: 5
-  tiempoActual: 0
---- !u!4 &531107438
+--- !u!4 &632768372
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 531107436}
+  m_GameObject: {fileID: 632768371}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.89, y: -2.87, z: 2.645278}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 9.05, y: -4.1454597, z: -2.6040907}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 935440364}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &861442714
 GameObject:
@@ -889,7 +873,7 @@ GameObject:
   - component: {fileID: 935440364}
   - component: {fileID: 935440365}
   m_Layer: 0
-  m_Name: ChestSpawnPoint
+  m_Name: ChestSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -907,7 +891,9 @@ Transform:
   m_LocalPosition: {x: -5.12, y: 1.5854598, z: 2.645278}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 998731224}
+  - {fileID: 632768372}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &935440365
@@ -923,8 +909,41 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chess: {fileID: 7222107004992582000, guid: 80539cdde14fe63499ae5ba6ca7f24ec, type: 3}
-  chessSpawnTime: 5
+  chessSpawnTime: 10
   tiempoActual: 0
+  p1: {fileID: 998731224}
+  p2: {fileID: 632768372}
+--- !u!1 &998731223
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 998731224}
+  m_Layer: 0
+  m_Name: p1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &998731224
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 998731223}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.19, y: -0.29545987, z: -2.6040907}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 935440364}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1033736553
 GameObject:
   m_ObjectHideFlags: 0
@@ -1848,7 +1867,6 @@ SceneRoots:
   - {fileID: 206001214}
   - {fileID: 2036651394}
   - {fileID: 935440364}
-  - {fileID: 531107438}
   - {fileID: 1866264674}
   - {fileID: 437233050}
   - {fileID: 931528717}
