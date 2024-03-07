@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
@@ -133,11 +134,6 @@ public class Player : MonoBehaviour
         {
             switch (armaActual)
             {
-                case TipoArma.Bazooka:
-                    firePinhazooka();
-                    municion--;
-                    break;
-
                 case TipoArma.Pepitas:
                     fireMachinegun();
                     municion--;
@@ -147,6 +143,16 @@ public class Player : MonoBehaviour
                     break;
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.V) && municion > 0)
+        {
+            if(armaActual == TipoArma.Bazooka)
+            {
+                firePinhazooka();
+                municion--;
+            }
+        }
+
 
         if (minaPisada)  
         {
@@ -178,7 +184,7 @@ public class Player : MonoBehaviour
         }
 
         //Flip animation 
-        bool flipped = moveDir.x > 0;
+        bool flipped = moveDir.x >= 0;
         this.transform.rotation = Quaternion.Euler(new Vector3(0f, flipped ? 180f : 0f, 0f));
     }
 
@@ -190,7 +196,16 @@ public class Player : MonoBehaviour
 
         bullet.transform.position = bulletSpawnPoint.position;
 
-        Vector2 trajectory = moveDir;
+        Vector2 trajectory;
+
+        if (moveDir.x > 0 || moveDir.x < 0 || moveDir.y > 0 || moveDir.y < 0)
+        {
+            trajectory = moveDir;
+        }
+        else
+        {
+            trajectory = Vector2.right;
+        }
 
         bullet.GetComponent<BalaPepitas>().setTrajectory(trajectory);
     }
@@ -204,9 +219,21 @@ public class Player : MonoBehaviour
             0,
             0,
             GetRotationAngle()
-        ); ;
+        );
 
-        Vector2 trajectory = rotation * moveDir;
+        Vector2 trajectory; 
+
+        if (moveDir.x > 0 || moveDir.x < 0 || moveDir.y > 0 || moveDir.y < 0)
+        {
+            trajectory = rotation * moveDir;
+        }
+        else
+        {
+            Vector2 aux = Vector2.right;
+            aux.y = 1;
+            trajectory = rotation * aux;
+        }
+        
 
         bullet.GetComponent<Bullet>().Init(trajectory);
 
@@ -254,7 +281,8 @@ public class Player : MonoBehaviour
             cc.enabled = false;
             salud -= 20;
         }
-        else if (collision.gameObject.tag == "MinaMofeta")
+
+        if (collision.gameObject.tag == "MinaMofeta")
         {
             canMove = false;
             rb.velocity = Vector2.zero;
@@ -263,43 +291,49 @@ public class Player : MonoBehaviour
             salud -= 20;
         }
         
-        else if (collision.gameObject.tag == "Chest")
+        if (collision.gameObject.tag == "Chest")
         {
-            if (chest_coldown_atual <= 0)
+            
+            TipoArma[] allWeapons = (TipoArma[])Enum.GetValues(typeof(TipoArma));
+            TipoArma randomWeapon = allWeapons[Random.Range(0, allWeapons.Length - 1)];
+
+            armaActual = randomWeapon;
+
+            if(armaActual == TipoArma.Bazooka)
             {
-                TipoArma[] allWeapons = (TipoArma[])Enum.GetValues(typeof(TipoArma));
-                TipoArma randomWeapon = allWeapons[Random.Range(0, allWeapons.Length)];
-
-                armaActual = randomWeapon;
-
-                if(armaActual == TipoArma.Bazooka)
-                {
-                    municion = 5;
-                }
-                else
-                {
-                    municion = 1000;
-                }
-
-
-                Debug.Log("Nueva arma:" + armaActual);
-                chest_coldown_atual = chest_coldown;
-
-                switch(armaActual)
-                {
-                    case TipoArma.Bazooka:
-                        animator.SetInteger("Arma", 1);
-                        break;
-
-                    case TipoArma.Pepitas:
-                        animator.SetInteger("Arma", 2);
-                        break;
-                }
-
-                Destroy(collision.gameObject);
-
+                municion = 5;
+            }
+            else
+            {
+                municion = 1000;
             }
 
+
+            Debug.Log("Nueva arma:" + armaActual);
+            chest_coldown_atual = chest_coldown;
+
+            switch(armaActual)
+            {
+                case TipoArma.Bazooka:
+                    animator.SetInteger("Arma", 1);
+                    break;
+
+                case TipoArma.Pepitas:
+                    animator.SetInteger("Arma", 2);
+                    break;
+            }
+
+            Destroy(collision.gameObject);
+
+            if(collision.transform.position.x < 0)
+            {
+                ChessSpawn.hayCofre1 = false;
+            }
+            else
+            {
+                ChessSpawn.hayCofre2 = false;
+            }
+            
         }
 
     }
